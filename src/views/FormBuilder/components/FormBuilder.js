@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import _ from 'lodash'
-import { Form } from 'stardust'
+import { Form } from 'semantic-ui-react'
 
 export const parseContext = (context) => {
   const formDescription = {
@@ -41,15 +41,18 @@ class FormBuilder extends Component {
   renderFields = () => {
     const { context } = this.props
     const formDescription = parseContext(context)
+    console.log(formDescription)
 
     return (
       <Form.Group>
-        {_.map(formDescription.fields, ({ control, name }) => {
+        {_.map(formDescription.fields, (field) => {
+          const { control, name } = field
           const startCase = _.startCase(name)
           const { element, ...elementProps } = control
 
           return (
             <Form.Field
+              key={name}
               label={startCase}
               control={element}
               placeholder={startCase}

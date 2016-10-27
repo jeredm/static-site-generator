@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import FormBuilder from './FormBuilder'
+import FormBuilder from './components/FormBuilder'
+import UserAvatar from './components/UserAvatar'
 import context from './context.json'
-import UserAvatar from './UserAvatar'
 
-class App extends Component {
+export class FormBuilderView extends Component {
   render() {
     return (
       <div>
@@ -13,5 +13,3 @@ class App extends Component {
     )
   }
 }
-
-export default App
